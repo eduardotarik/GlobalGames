@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="Description" content="desenvolvimento de jogos e realidade virtual" />
+    <meta name="Keywords" content="realidade virtual, criamos jogos, desenvolvemos jogos" />
+    <title>@ViewData["Title"] - Global Games</title>
+    <link rel="stylesheet" href="@Url.Content("~/css/styles.css")" />
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="logo">
+                <h1><span class="destaque">Global</span> Games Enterprise</h1>
+            </div>
+
+            <nav>
+                <ul>
+                    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Home" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "selecionado" : "")">
+                        <a href="@Url.Action("Index", "Home")">Home</a>
+                    </li>
+                    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Home" && ViewContext.RouteData.Values["Action"].ToString() == "Sobre" ? "selecionado" : "")">
+                        <a href="@Url.Action("Sobre", "Home")">Sobre</a>
+                    </li>
+                    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Home" && ViewContext.RouteData.Values["Action"].ToString() == "Servicos" ? "selecionado" : "")">
+                        <a href="@Url.Action("Servicos", "Home")">Serviços</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    @RenderBody()
+
+    <footer>
+        <p>Global Games, Todos os direitos reservados &copy; @DateTime.Now.Year</p>
+    </footer>
+</body>
+</html>
