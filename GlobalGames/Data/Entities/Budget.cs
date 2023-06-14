@@ -16,5 +16,7 @@ namespace GlobalGames.Data.Entities
 
         [MaxLength(100)]
         public string Descricao { get; set; }
+
+        public User User { get; set; }
     }
 }

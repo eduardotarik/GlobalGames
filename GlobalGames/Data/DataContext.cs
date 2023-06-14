@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GlobalGames.Data
 {
-    public class DataContext : IdentityDbContext
+    public class DataContext : IdentityDbContext<User>
     {
         public DbSet<Subscriber> Subscribers { get; set; }
 

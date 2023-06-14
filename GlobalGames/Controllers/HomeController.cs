@@ -1,7 +1,9 @@
 ﻿using GlobalGames.Data;
 using GlobalGames.Data.Entities;
+using GlobalGames.Helpers;
 using GlobalGames.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
@@ -12,13 +14,16 @@ namespace GlobalGames.Controllers
 
         private readonly ISubscriberRepository _subscriberRepository;
         private readonly IBudgetRepository _budgetRepository;
+        private readonly IUserHelper _userHelper;
 
         public HomeController(ISubscriberRepository subscriberRepository,
-            IBudgetRepository budgetRepository)
+            IBudgetRepository budgetRepository,
+            IUserHelper userHelper)
         {
 
             _subscriberRepository = subscriberRepository;
             _budgetRepository = budgetRepository;
+            _userHelper = userHelper;
         }
 
         public IActionResult Index()
@@ -41,25 +46,28 @@ namespace GlobalGames.Controllers
             return PartialView("_Newsletter");
         }
 
-        public async Task<IActionResult> Subscribe(string email)
-        {
-            if (!string.IsNullOrEmpty(email))
-            {
-                var subscriber = new Subscriber { Email = email };
-                await _subscriberRepository.AddAsync(subscriber);
-            }
-
-            return RedirectToAction("Index");
-        }
-
         [HttpPost]
-        public async Task<IActionResult> CreateBudget(Budget budget)
+        public async Task<IActionResult> Subscribe(Subscriber subscriber)
         {
             if (ModelState.IsValid)
             {
-                await _budgetRepository.AddAsync(budget);
+                //TODO: Modificar para o user que tiver logado
+                subscriber.User = await _userHelper.GetUserByEmailAsync("tarik@gmail.com");
+                await _subscriberRepository.AddAsync(subscriber);
+                return RedirectToAction(nameof(Index));
+            }
 
-                return RedirectToAction("Index");
+            return View(subscriber);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateBudget(int id, Budget budget)
+        {
+            if (ModelState.IsValid)
+            {
+                budget.User = await _userHelper.GetUserByEmailAsync("tarik@gmail.com");
+                await _budgetRepository.AddAsync(budget);
+                return RedirectToAction(nameof(Index));
             }
 
             return View(budget);

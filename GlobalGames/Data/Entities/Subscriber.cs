@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Azure.Storage.Blobs.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace GlobalGames.Data.Entities
 {
@@ -9,6 +10,8 @@ namespace GlobalGames.Data.Entities
         [Required]
         [MaxLength(50)]
         public string Email { get; set; }
+
+        public User User { get; set; }
 
     }
 }

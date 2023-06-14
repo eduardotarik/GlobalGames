@@ -1,4 +1,5 @@
 ﻿using GlobalGames.Data.Entities;
+using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
 namespace GlobalGames.Data
@@ -16,6 +17,16 @@ namespace GlobalGames.Data
         {
             await _context.Set<T>().AddAsync(entity);
             await _context.SaveChangesAsync();
+        }
+
+        public async Task<bool> ExistAsync(int id)
+        {
+            return await _context.Set<T>().AnyAsync(e => e.Id == id);
+        }
+
+        private async Task<bool> SaveAllAsync()
+        {
+            return await _context.SaveChangesAsync() > 0;
         }
     }
 }
