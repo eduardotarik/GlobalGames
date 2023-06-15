@@ -1,8 +1,4 @@
-﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -29,10 +25,8 @@
         </div>
     </section>
 
-    @{
-        await Html.RenderPartialAsync("_Newsletter");
-    }
-    
+    <partial name="_Newsletter" />
+
     <section id="main">
         <div class="container">
             <article id="main-col">

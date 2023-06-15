@@ -18,15 +18,32 @@
 
             <nav>
                 <ul>
-                    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Home" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "selecionado" : "")">
-                        <a href="@Url.Action("Index", "Home")">Home</a>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                     </li>
-                    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Home" && ViewContext.RouteData.Values["Action"].ToString() == "Sobre" ? "selecionado" : "")">
-                        <a href="@Url.Action("Sobre", "Home")">Sobre</a>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Sobre">Sobre</a>
                     </li>
-                    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Home" && ViewContext.RouteData.Values["Action"].ToString() == "Servicos" ? "selecionado" : "")">
-                        <a href="@Url.Action("Servicos", "Home")">Serviços</a>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Servicos">Serviços</a>
                     </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @if (this.User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Account" asp-action="ChangeUser">@this.User.Identity.Name</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+                        </li>
+                    }
                 </ul>
             </nav>
         </div>
@@ -34,8 +51,15 @@
 
     @RenderBody()
 
-    <footer>
-        <p>Global Games, Todos os direitos reservados &copy; @DateTime.Now.Year</p>
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            <p>Global Games, Todos os direitos reservados &copy; @DateTime.Now.Year</p>
+        </div>
     </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
