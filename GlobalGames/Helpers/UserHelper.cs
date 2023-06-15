@@ -24,6 +24,9 @@ namespace GlobalGames.Helpers
 
         public async Task<User> GetUserByEmailAsync(string email)
         {
+            if (email == null)
+                return null;
+
             return await _userManager.FindByEmailAsync(email);
         }
 

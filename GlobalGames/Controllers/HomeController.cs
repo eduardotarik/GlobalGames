@@ -51,8 +51,7 @@ namespace GlobalGames.Controllers
         {
             if (ModelState.IsValid)
             {
-                //TODO: Modificar para o user que tiver logado
-                subscriber.User = await _userHelper.GetUserByEmailAsync("tarik@gmail.com");
+                subscriber.User = await _userHelper.GetUserByEmailAsync(this.User.Identity.Name);
                 await _subscriberRepository.AddAsync(subscriber);
                 return RedirectToAction(nameof(Index));
             }
@@ -65,7 +64,7 @@ namespace GlobalGames.Controllers
         {
             if (ModelState.IsValid)
             {
-                budget.User = await _userHelper.GetUserByEmailAsync("tarik@gmail.com");
+                budget.User = await _userHelper.GetUserByEmailAsync(this.User.Identity.Name);
                 await _budgetRepository.AddAsync(budget);
                 return RedirectToAction(nameof(Index));
             }
