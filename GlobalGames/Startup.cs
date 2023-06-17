@@ -79,6 +79,15 @@ namespace GlobalGames
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapControllerRoute(
+                    name: "sobre",
+                    pattern: "{controller=Home}/{action=Sobre}/{id?}");
+
+                endpoints.MapControllerRoute(
+                    name: "servicos",
+                    pattern: "{controller=Home}/{action=Servicos}/{id?}");
+
             });
         }
     }

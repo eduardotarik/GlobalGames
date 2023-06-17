@@ -55,7 +55,7 @@ namespace GlobalGames.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            return View(subscriber);
+            return RedirectToAction(nameof(Index));
         }
 
         [HttpPost]
@@ -68,7 +68,7 @@ namespace GlobalGames.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            return View(budget);
+            return RedirectToAction(nameof(Servicos));
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

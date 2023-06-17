@@ -1,16 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta name="Description"
-          content="desenvolvimento de jogos e realidade virtual" />
-    <meta name="Keywords"
-          content="realidade virtual, criamos jogos, desenvolvemos jogos" />
-    <title>Global Games | Welcome</title>
-    <link rel="stylesheet" href="@Url.Content("~/css/styles.css")" />
-</head>
 <body>
     <section id="showcase">
         <div class="container">
@@ -27,7 +20,7 @@
 
     <partial name="_Newsletter" />
 
-    <section id="boxes" style="min-height: 100vh;"> 
+    <section id="boxes"> 
         <div class="container">
             <div class="box">
                 <img src="@Url.Content("~/images/logo_html.png")" />

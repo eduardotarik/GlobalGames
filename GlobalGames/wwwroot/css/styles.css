@@ -7,7 +7,6 @@
     padding: 0;
     margin: 0;
     background-color: #f4f4f4;
-    max-width: 100%;
 }
 
 .container {
@@ -121,7 +120,7 @@ header {
 
     #newsletter input[type='email'] {
         padding: 4px;
-        height: 25px;
+        height: 35px;
         width: 250px;
     }
 
@@ -142,7 +141,7 @@ header {
             width: 90px;
         }
 
-/*Pagina Sobre*/
+/*Página Sobre*/
 
 aside#sidebar {
     float: right;
@@ -155,7 +154,7 @@ article#main-col {
     width: 65%;
 }
 
-/*Pagina Servicos*/
+/*Página Serviços*/
 
 ul#servicos li {
     list-style: none;
@@ -174,24 +173,16 @@ aside#sidebar .orcamento textarea {
 /*Footer*/
 
 footer {
-    padding:55px;
+    padding: 40px;
     margin-top: 20px;
     color: #fff;
     background-color: #e8491d;
     text-align: center;
 }
 
-.footer {
-    /* Footer styles */
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-}
-
 /*Media Querys*/
 /*se o browser tiver 768px ou menos*/
-/*se for min-width serÃ¡ se tiver 768px ou mais*/
+/*se for min-width será se tiver 768px ou mais*/
 
 @media (max-width: 768px) {
     /*body {
@@ -232,83 +223,4 @@ footer {
         margin-bottom: 5px;
     }
 }
-
-/* Login form */
-.row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.col-md-4 {
-    max-width: 400px;
-    margin: 0 auto; 
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-}
-
-input[type="text"],
-input[type="password"],
-input[type="submit"],
-a.btn {
-    width: 100%;
-    padding: 0.75rem;
-    font-size: 1rem;
-    border-radius: 0.25rem;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-
-input[type="submit"],
-a.btn {
-    margin-top: 1rem;
-    text-align: center;
-    cursor: pointer;
-}
-
-a.btn {
-    display: inline-block;
-    text-decoration: none;
-    color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
-    transition: background-color 0.3s ease;
-}
-
-    a.btn:hover {
-        background-color: #0069d9;
-    }
-
-input#Username {
-    width: 100%;
-    height: 40px;
-    padding: 0.75rem;
-    font-size: 1rem;
-    border-radius: 0.25rem;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-
-.register-input {
-    width: 100%;
-}
-
-.navbar-nav .nav-link {
-    color: #fff;
-}
-
-#newsletter input[type="email"],
-#newsletter button {
-    height: 38px;
-}
-
 /*Fim da media query*/
