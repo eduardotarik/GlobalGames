@@ -1,7 +1,12 @@
 ﻿@model GlobalGames.Models.ChangeUserViewModel
 @{
     ViewData["Title"] = "ChangeUser";
+    Layout = null;
 }
+}
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/styles.css" />
 
 <h1 class="text-center">Change User</h1>
 <div class="row justify-content-center">
@@ -37,6 +42,12 @@
         </form>
     </div>
 </div>
+
+<footer class="login-footer text-white mt-auto">
+    <div class="container">
+        <p class="text-center mb-0">Global Games, Todos os direitos reservados &copy; @DateTime.Now.Year</p>
+    </div>
+</footer>
 
 @section Scripts {
     @{
