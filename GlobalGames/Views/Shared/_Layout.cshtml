@@ -8,7 +8,7 @@
     <meta name="Keywords" content="realidade virtual, criamos jogos, desenvolvemos jogos" />
     <title>@ViewData["Title"] - Global Games</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="@Url.Content("~/css/styles.css")" />
+    <link rel="stylesheet" href="~/css/styles.css" />
     
 </head>
 <body>
@@ -51,7 +51,9 @@
         </div>
     </header>
 
-    @RenderBody()
+    <div class="main-content">
+        @RenderBody()
+    </div>
 
     <footer class="footer text-white mt-auto">
         <div class="container">

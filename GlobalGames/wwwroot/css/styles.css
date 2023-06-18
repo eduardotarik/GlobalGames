@@ -172,12 +172,26 @@ aside#sidebar .orcamento textarea {
 
 /*Footer*/
 
-footer {
+.footer {
     padding: 40px;
     margin-top: 20px;
     color: #fff;
     background-color: #e8491d;
     text-align: center;
+}
+
+.login-footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 40px;
+    margin-top: 20px;
+    color: #fff;
+    background-color: #e8491d;
+    text-align: center;
+    padding: 40px;
+    margin-top: 20px;
 }
 
 /*Media Querys*/
@@ -222,5 +236,21 @@ footer {
         width: 100%;
         margin-bottom: 5px;
     }
+}
+
+@media screen and (min-width: 768px) {
+    /* Styles for screens wider than 768px */
+    .container {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
+.login-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 /*Fim da media query*/
